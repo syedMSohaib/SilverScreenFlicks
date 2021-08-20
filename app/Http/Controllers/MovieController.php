@@ -37,7 +37,7 @@ class MovieController extends Controller
 
     public function trending(Request $request) {
 
-        $response = Http::get('https://api.themoviedb.org/3/trending/all/day?api_key=');
+        $response = Http::get('https://api.themoviedb.org/3/trending/all/day?api_key=b591e56a62ffd2295ff3ee442f256df5');
 
         return $response->json();
     }
