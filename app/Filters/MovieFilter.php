@@ -11,7 +11,8 @@ class MovieFilter extends Filters {
     public function imdb($value){
 
         if($value != "" || $value != null){
-            return $this->builder->orderBy('imdb_rating', 'DESC');
+            return $this->builder->where(DB::raw("ROUND(`imdb_rating`) = $value"));
+            // return $this->builder->orderBy('imdb_rating', 'DESC');
         }
     }
 
