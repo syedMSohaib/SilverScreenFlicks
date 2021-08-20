@@ -14,7 +14,7 @@ class MovieController extends Controller
     public function index(Request $request, MovieFilter $filters){
         $movies = Movie::with('links')->filter($filters);
 
-        $movies = $movies->paginate(20);
+        $movies = $movies->paginate(30);
 
         return $movies;
     }
@@ -29,7 +29,7 @@ class MovieController extends Controller
 
         if(!$request->query('title')) return  [];
 
-        $movies = Movie::filter($filters)->latest()->paginate(20);
+        $movies = Movie::filter($filters)->latest()->paginate(30);
 
         return $movies;
     }
